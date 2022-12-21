@@ -1,0 +1,58 @@
+﻿@model CenterPoint.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .radio {
+        background-color: olivedrab;
+        cursor:pointer;
+    }
+    .radio:active {
+        transform:scale(0.98);
+    }
+</style>
+
+
+<h1>Create Employee</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label><br />
+                <label for="male">Male&nbsp;</label><input class="radio" style="width:20px;" id="male" type="radio" value="Male" asp-for="Gender" class="form-control" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="female">Female&nbsp;</label><input class="radio" id="female" style="width:20px;" type="radio" value="Female" asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div>
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+</div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
